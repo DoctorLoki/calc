@@ -193,7 +193,7 @@ class Expr:
 		elif self.op == '&':    return x & y
 		elif self.op == '<<':   return x << y
 		elif self.op == '>>':   return x >> y
-		elif self.op == '+':    return x - y
+		elif self.op == '+':    return x + y
 		elif self.op == '-':    return x - y
 		elif self.op == '*':    return x * y
 		elif self.op == '/':
