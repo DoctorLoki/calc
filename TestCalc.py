@@ -20,11 +20,28 @@ def run_system_tests():
 			failures += 1
 	return failures
 
+UnitTests = [
+	("no space",   "1+2",           ['1', '+', '2'] ),
+	("whitespace", "1    +    2",   ['1', '+', '2'] ),
+]
+
+def run_unit_tests():
+	Calc.setup()
+
+	failures = 0
+	for (name, line, expected) in UnitTests:
+		actual = Calc.tokenise(line)
+		if expected != actual:
+			print("FAIL '%s' expected '%s' saw '%s'" % (name, expected, actual))
+			failures += 1
+	return failures
+
+
 def main():
 	failures = 0
 	failures += run_system_tests()
+	failures += run_unit_tests()
 	return failures
 
 if __name__ == "__main__":
 	sys.exit(main())
-
